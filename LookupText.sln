@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "LookupText", "LookupText\LookupText.vbproj", "{913BA99C-5A31-4860-A8D7-DB3BBDE6555F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{913BA99C-5A31-4860-A8D7-DB3BBDE6555F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{913BA99C-5A31-4860-A8D7-DB3BBDE6555F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{913BA99C-5A31-4860-A8D7-DB3BBDE6555F}.Debug|x86.ActiveCfg = Debug|x86
+		{913BA99C-5A31-4860-A8D7-DB3BBDE6555F}.Debug|x86.Build.0 = Debug|x86
+		{913BA99C-5A31-4860-A8D7-DB3BBDE6555F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{913BA99C-5A31-4860-A8D7-DB3BBDE6555F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{913BA99C-5A31-4860-A8D7-DB3BBDE6555F}.Release|x86.ActiveCfg = Release|x86
+		{913BA99C-5A31-4860-A8D7-DB3BBDE6555F}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5515A844-1801-42C2-B5C5-AF79D54EFB03}
+	EndGlobalSection
+EndGlobal

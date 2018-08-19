@@ -363,7 +363,7 @@ Public Class LookupText
         lClipboardText = "Email Address: " + txtEmailAddress.Text + Environment.NewLine
         lClipboardText += LSet("Message Sent: " + txtMessageSent.Text, 40) + "Sent By Name: " + txtSentByName.Text + Environment.NewLine
         lClipboardText += LSet("Subject Line: " + txtSubjectLine.Text, 40) + "Sent By Email: " + txtSentByEmail.Text + Environment.NewLine
-        lClipboardText += "Body Text: " + txtBodyText.Text + Environment.NewLine
+        lClipboardText += Environment.NewLine + "Body Text: " + Environment.NewLine + txtBodyText.Text + Environment.NewLine + Environment.NewLine
         lClipboardText += LSet("Tenant Name: " + txtTenantName.Text, 40) + "Property: " + txtProperty.Text + Environment.NewLine
         lClipboardText += LSet("Cell Phone: " + txtCellPhone.Text, 40) + "Address: " + txtAddress.Text + Environment.NewLine
         lClipboardText += "Primary Email: " + txtPrimaryEmail.Text

@@ -49,6 +49,8 @@ Partial Class LookupText
         Me.grpTenant = New System.Windows.Forms.GroupBox()
         Me.grpAsset = New System.Windows.Forms.GroupBox()
         Me.btnToClipboard = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtFullEmailAddress = New System.Windows.Forms.TextBox()
         Me.grpMessage.SuspendLayout()
         Me.grpTenant.SuspendLayout()
         Me.grpAsset.SuspendLayout()
@@ -56,7 +58,7 @@ Partial Class LookupText
         '
         'txtEmailAddress
         '
-        Me.txtEmailAddress.Location = New System.Drawing.Point(101, 24)
+        Me.txtEmailAddress.Location = New System.Drawing.Point(136, 24)
         Me.txtEmailAddress.Name = "txtEmailAddress"
         Me.txtEmailAddress.Size = New System.Drawing.Size(218, 20)
         Me.txtEmailAddress.TabIndex = 0
@@ -66,16 +68,16 @@ Partial Class LookupText
         Me.lblEmailAddress.AutoSize = True
         Me.lblEmailAddress.Location = New System.Drawing.Point(24, 28)
         Me.lblEmailAddress.Name = "lblEmailAddress"
-        Me.lblEmailAddress.Size = New System.Drawing.Size(76, 13)
+        Me.lblEmailAddress.Size = New System.Drawing.Size(108, 13)
         Me.lblEmailAddress.TabIndex = 1
-        Me.lblEmailAddress.Text = "Email Address:"
+        Me.lblEmailAddress.Text = "Partial Email Address:"
         '
         'btnLookup
         '
         Me.btnLookup.FlatAppearance.BorderSize = 2
         Me.btnLookup.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.btnLookup.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLookup.Location = New System.Drawing.Point(381, 21)
+        Me.btnLookup.Location = New System.Drawing.Point(408, 21)
         Me.btnLookup.Name = "btnLookup"
         Me.btnLookup.Size = New System.Drawing.Size(75, 23)
         Me.btnLookup.TabIndex = 2
@@ -139,7 +141,7 @@ Partial Class LookupText
         'txtMessageSent
         '
         Me.txtMessageSent.BackColor = System.Drawing.SystemColors.Info
-        Me.txtMessageSent.Location = New System.Drawing.Point(101, 89)
+        Me.txtMessageSent.Location = New System.Drawing.Point(101, 146)
         Me.txtMessageSent.Name = "txtMessageSent"
         Me.txtMessageSent.ReadOnly = True
         Me.txtMessageSent.Size = New System.Drawing.Size(218, 20)
@@ -148,7 +150,7 @@ Partial Class LookupText
         'lblMessageSent
         '
         Me.lblMessageSent.AutoSize = True
-        Me.lblMessageSent.Location = New System.Drawing.Point(24, 93)
+        Me.lblMessageSent.Location = New System.Drawing.Point(24, 150)
         Me.lblMessageSent.Name = "lblMessageSent"
         Me.lblMessageSent.Size = New System.Drawing.Size(78, 13)
         Me.lblMessageSent.TabIndex = 9
@@ -157,7 +159,7 @@ Partial Class LookupText
         'txtSubjectLine
         '
         Me.txtSubjectLine.BackColor = System.Drawing.SystemColors.Info
-        Me.txtSubjectLine.Location = New System.Drawing.Point(101, 126)
+        Me.txtSubjectLine.Location = New System.Drawing.Point(101, 183)
         Me.txtSubjectLine.Name = "txtSubjectLine"
         Me.txtSubjectLine.ReadOnly = True
         Me.txtSubjectLine.Size = New System.Drawing.Size(218, 20)
@@ -166,7 +168,7 @@ Partial Class LookupText
         'lblSubjectLine
         '
         Me.lblSubjectLine.AutoSize = True
-        Me.lblSubjectLine.Location = New System.Drawing.Point(24, 130)
+        Me.lblSubjectLine.Location = New System.Drawing.Point(24, 187)
         Me.lblSubjectLine.Name = "lblSubjectLine"
         Me.lblSubjectLine.Size = New System.Drawing.Size(69, 13)
         Me.lblSubjectLine.TabIndex = 11
@@ -186,7 +188,7 @@ Partial Class LookupText
         'lblBodyText
         '
         Me.lblBodyText.AutoSize = True
-        Me.lblBodyText.Location = New System.Drawing.Point(24, 186)
+        Me.lblBodyText.Location = New System.Drawing.Point(24, 243)
         Me.lblBodyText.Name = "lblBodyText"
         Me.lblBodyText.Size = New System.Drawing.Size(58, 13)
         Me.lblBodyText.TabIndex = 13
@@ -235,7 +237,7 @@ Partial Class LookupText
         Me.grpMessage.Controls.Add(Me.txtSentByName)
         Me.grpMessage.Controls.Add(Me.lblSentByName)
         Me.grpMessage.Controls.Add(Me.txtBodyText)
-        Me.grpMessage.Location = New System.Drawing.Point(12, 64)
+        Me.grpMessage.Location = New System.Drawing.Point(12, 121)
         Me.grpMessage.Name = "grpMessage"
         Me.grpMessage.Size = New System.Drawing.Size(640, 187)
         Me.grpMessage.TabIndex = 19
@@ -286,7 +288,7 @@ Partial Class LookupText
         Me.grpTenant.Controls.Add(Me.lblPrimaryEmail)
         Me.grpTenant.Controls.Add(Me.lblTenantName)
         Me.grpTenant.Controls.Add(Me.lblCellPhone)
-        Me.grpTenant.Location = New System.Drawing.Point(12, 251)
+        Me.grpTenant.Location = New System.Drawing.Point(12, 308)
         Me.grpTenant.Name = "grpTenant"
         Me.grpTenant.Size = New System.Drawing.Size(325, 137)
         Me.grpTenant.TabIndex = 20
@@ -299,7 +301,7 @@ Partial Class LookupText
         Me.grpAsset.Controls.Add(Me.lblAddressDesc)
         Me.grpAsset.Controls.Add(Me.lblProperty)
         Me.grpAsset.Controls.Add(Me.txtAddress)
-        Me.grpAsset.Location = New System.Drawing.Point(343, 251)
+        Me.grpAsset.Location = New System.Drawing.Point(343, 308)
         Me.grpAsset.Name = "grpAsset"
         Me.grpAsset.Size = New System.Drawing.Size(310, 137)
         Me.grpAsset.TabIndex = 21
@@ -308,18 +310,38 @@ Partial Class LookupText
         '
         'btnToClipboard
         '
-        Me.btnToClipboard.Location = New System.Drawing.Point(497, 21)
+        Me.btnToClipboard.Location = New System.Drawing.Point(551, 21)
         Me.btnToClipboard.Name = "btnToClipboard"
         Me.btnToClipboard.Size = New System.Drawing.Size(75, 23)
         Me.btnToClipboard.TabIndex = 22
         Me.btnToClipboard.Text = "To Clipboard"
         Me.btnToClipboard.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(24, 69)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(95, 13)
+        Me.Label1.TabIndex = 24
+        Me.Label1.Text = "Full Email Address:"
+        '
+        'txtFullEmailAddress
+        '
+        Me.txtFullEmailAddress.BackColor = System.Drawing.SystemColors.Info
+        Me.txtFullEmailAddress.Location = New System.Drawing.Point(136, 65)
+        Me.txtFullEmailAddress.Name = "txtFullEmailAddress"
+        Me.txtFullEmailAddress.ReadOnly = True
+        Me.txtFullEmailAddress.Size = New System.Drawing.Size(218, 20)
+        Me.txtFullEmailAddress.TabIndex = 23
+        '
         'LookupText
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(664, 400)
+        Me.ClientSize = New System.Drawing.Size(664, 459)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.txtFullEmailAddress)
         Me.Controls.Add(Me.btnToClipboard)
         Me.Controls.Add(Me.grpAsset)
         Me.Controls.Add(Me.grpTenant)
@@ -382,4 +404,6 @@ Partial Class LookupText
     Friend WithEvents txtSentByName As TextBox
     Friend WithEvents lblSentByName As Label
     Friend WithEvents btnToClipboard As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtFullEmailAddress As TextBox
 End Class

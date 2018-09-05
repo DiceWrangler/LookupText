@@ -51,6 +51,7 @@ Partial Class LookupText
         Me.btnToClipboard = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtFullEmailAddress = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.grpMessage.SuspendLayout()
         Me.grpTenant.SuspendLayout()
         Me.grpAsset.SuspendLayout()
@@ -310,7 +311,7 @@ Partial Class LookupText
         '
         'btnToClipboard
         '
-        Me.btnToClipboard.Location = New System.Drawing.Point(551, 21)
+        Me.btnToClipboard.Location = New System.Drawing.Point(514, 21)
         Me.btnToClipboard.Name = "btnToClipboard"
         Me.btnToClipboard.Size = New System.Drawing.Size(75, 23)
         Me.btnToClipboard.TabIndex = 22
@@ -335,11 +336,21 @@ Partial Class LookupText
         Me.txtFullEmailAddress.Size = New System.Drawing.Size(218, 20)
         Me.txtFullEmailAddress.TabIndex = 23
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(603, 26)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(49, 13)
+        Me.Label2.TabIndex = 25
+        Me.Label2.Text = "v180905"
+        '
         'LookupText
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(664, 459)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtFullEmailAddress)
         Me.Controls.Add(Me.btnToClipboard)
@@ -406,4 +417,5 @@ Partial Class LookupText
     Friend WithEvents btnToClipboard As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents txtFullEmailAddress As TextBox
+    Friend WithEvents Label2 As Label
 End Class

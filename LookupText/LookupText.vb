@@ -6,6 +6,7 @@ Imports System.Configuration
 Public Class LookupText
 
     Dim gDBConn As SqlConnection
+    Dim gSentMessages As ArrayList
 
 
     Public Structure SentMessage
@@ -42,19 +43,100 @@ Public Class LookupText
     End Structure
 
 
-    Private Sub btnLookup_Click(sender As Object, e As EventArgs) Handles btnLookup.Click
+    Private Sub LookupText_Load(sender As Object, e As EventArgs) Handles Me.Load
+
+        Call DBOpen()
+
+    End Sub
+
+
+    Private Sub LookupText_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+
+        Call DBClose()
+
+    End Sub
+
+
+    Private Sub Lookup_Click(sender As Object, e As EventArgs) Handles btnLookup.Click
 
         Dim lEmailAddress As String
+        Dim lMessageIdx As Integer
+        Dim lSentMessage As SentMessage
+        Dim lDisplayRow As String
+
+        lbSentMessages.Items.Clear()
+
+        txtFullEmailAddress.Text = ""
+        txtMessageSent.Text = ""
+        txtSubjectLine.Text = ""
+        txtBodyText.Text = ""
+
+        txtSentByName.Text = ""
+        txtSentByEmail.Text = ""
+
+        txtTenantName.Text = ""
+        txtCellPhone.Text = ""
+        txtPrimaryEmail.Text = ""
+
+        txtAddress.Text = ""
+        txtProperty.Text = ""
+
+        lEmailAddress = txtEmailAddress.Text
+        gSentMessages = GetSentMessagesByEmail(lEmailAddress)
+
+        If gSentMessages.Count > 0 Then
+
+            For lMessageIdx = 0 To (gSentMessages.Count - 1)
+
+                lSentMessage = gSentMessages.Item(lMessageIdx)
+                lDisplayRow = LSet(lSentMessage.TextToEmail, 36) & " " & LSet(lSentMessage.SentTime.ToString, 22) & " " & LSet(lSentMessage.BodyText, 60)
+                lbSentMessages.Items.Add(lDisplayRow)
+
+            Next
+
+            lbSentMessages.Update()
+            lbSentMessages.Focus()
+            lbSentMessages.SetSelected(0, True)
+
+        Else
+
+            MessageBox.Show("Unable to find a text message sent to: " & lEmailAddress, "NOT FOUND", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+        End If
+
+    End Sub
+
+
+    Private Sub ToClipboard_Click(sender As Object, e As EventArgs) Handles btnToClipboard.Click
+
+        Dim lClipboardText As String
+
+        lClipboardText = "TextTo Address: " + txtEmailAddress.Text + Environment.NewLine + Environment.NewLine
+        lClipboardText += LSet("Message Sent: " + txtMessageSent.Text, 40) + "Sent By Name: " + txtSentByName.Text + Environment.NewLine
+        lClipboardText += LSet("Subject Line: " + txtSubjectLine.Text, 40) + "Sent By Email: " + txtSentByEmail.Text + Environment.NewLine
+        lClipboardText += Environment.NewLine + "Body Text: " + Environment.NewLine + txtBodyText.Text + Environment.NewLine + Environment.NewLine
+        lClipboardText += LSet("Tenant Name: " + txtTenantName.Text, 40) + "Property: " + txtProperty.Text + Environment.NewLine
+        lClipboardText += LSet("Cell Phone: " + txtCellPhone.Text, 40) + "Address: " + txtAddress.Text + Environment.NewLine
+        lClipboardText += "Primary Email: " + txtPrimaryEmail.Text
+
+        Clipboard.SetText(lClipboardText)
+
+    End Sub
+
+
+    Private Sub lbSentMessages_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbSentMessages.SelectedIndexChanged
+
+        Dim lMessageIdx As Integer
         Dim lSentMessage As SentMessage
         Dim lTenant As Tenant
         Dim lAsset As Asset
         Dim lSecurityUser As SecurityUser
 
+        lMessageIdx = lbSentMessages.SelectedIndex
 
-        lEmailAddress = txtEmailAddress.Text
-        lSentMessage = GetLastSentMessageByEmail(lEmailAddress)
+        If (lMessageIdx >= 0) And (lMessageIdx < gSentMessages.Count) Then
 
-        If lSentMessage.MessageID > 0 Then
+            lSentMessage = gSentMessages.Item(lMessageIdx)
 
             lTenant = GetTenant(lSentMessage.TenantID)
             lAsset = GetAsset(lSentMessage.AssetID)
@@ -75,25 +157,7 @@ Public Class LookupText
             txtAddress.Text = lAsset.AddressDesc
             txtProperty.Text = lAsset.PropertyDesc
 
-        Else
-
-            MessageBox.Show("Unable to find a text message sent to: " & lEmailAddress, "NOT FOUND", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-
         End If
-
-    End Sub
-
-
-    Private Sub LookupText_Load(sender As Object, e As EventArgs) Handles Me.Load
-
-        Call DBOpen()
-
-    End Sub
-
-
-    Private Sub LookupText_Closed(sender As Object, e As EventArgs) Handles Me.Closed
-
-        Call DBClose()
 
     End Sub
 
@@ -142,9 +206,10 @@ Public Class LookupText
     End Sub
 
 
-    Public Function GetLastSentMessageByEmail(pEmailAddress As String) As SentMessage
+    Public Function GetSentMessagesByEmail(pEmailAddress As String) As ArrayList
 
         Dim lSentMessage As SentMessage
+        Dim lSentMessages As New ArrayList
         Dim lCmd As New SqlCommand
         Dim lReader As SqlDataReader
 
@@ -160,29 +225,29 @@ Public Class LookupText
             lCmd.Parameters.Add("@EmailAddress", SqlDbType.VarChar)
             lCmd.Parameters("@EmailAddress").Value = pEmailAddress
 
-            lReader = lCmd.ExecuteReader(CommandBehavior.SingleRow)
-            lReader.Read()
-
+            lReader = lCmd.ExecuteReader()
             If lReader.HasRows Then
 
-                With lSentMessage
+                While lReader.Read()
 
-                    .MessageID = lReader.GetInt32(0)
-                    .BatchID = lReader.GetInt32(1)
-                    .TextTypeID = lReader.GetInt32(2)
-                    .SentByUserID = lReader.GetInt32(3)
-                    .SentTime = lReader.GetDateTime(4)
-                    .TenantID = lReader.GetInt32(5)
-                    .AssetID = lReader.GetInt32(6)
-                    .TextToEmail = lReader.GetString(7)
-                    .SubjectLine = lReader.GetString(8)
-                    .BodyText = lReader.GetString(9)
+                    With lSentMessage
 
-                End With
+                        .MessageID = lReader.GetInt32(0)
+                        .BatchID = lReader.GetInt32(1)
+                        .TextTypeID = lReader.GetInt32(2)
+                        .SentByUserID = lReader.GetInt32(3)
+                        .SentTime = lReader.GetDateTime(4)
+                        .TenantID = lReader.GetInt32(5)
+                        .AssetID = lReader.GetInt32(6)
+                        .TextToEmail = lReader.GetString(7)
+                        .SubjectLine = lReader.GetString(8)
+                        .BodyText = lReader.GetString(9)
 
-            Else
+                    End With
 
-                lSentMessage.MessageID = 0
+                    lSentMessages.Add(lSentMessage)
+
+                End While
 
             End If
 
@@ -199,7 +264,7 @@ Public Class LookupText
 
         End Try
 
-        GetLastSentMessageByEmail = lSentMessage
+        GetSentMessagesByEmail = lSentMessages
 
     End Function
 
@@ -358,20 +423,4 @@ Public Class LookupText
 
     End Function
 
-
-    Private Sub btnToClipboard_Click(sender As Object, e As EventArgs) Handles btnToClipboard.Click
-
-        Dim lClipboardText As String
-
-        lClipboardText = "Email Address: " + txtEmailAddress.Text + Environment.NewLine
-        lClipboardText += LSet("Message Sent: " + txtMessageSent.Text, 40) + "Sent By Name: " + txtSentByName.Text + Environment.NewLine
-        lClipboardText += LSet("Subject Line: " + txtSubjectLine.Text, 40) + "Sent By Email: " + txtSentByEmail.Text + Environment.NewLine
-        lClipboardText += Environment.NewLine + "Body Text: " + Environment.NewLine + txtBodyText.Text + Environment.NewLine + Environment.NewLine
-        lClipboardText += LSet("Tenant Name: " + txtTenantName.Text, 40) + "Property: " + txtProperty.Text + Environment.NewLine
-        lClipboardText += LSet("Cell Phone: " + txtCellPhone.Text, 40) + "Address: " + txtAddress.Text + Environment.NewLine
-        lClipboardText += "Primary Email: " + txtPrimaryEmail.Text
-
-        Clipboard.SetText(lClipboardText)
-
-    End Sub
 End Class

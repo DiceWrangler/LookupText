@@ -52,6 +52,7 @@ Partial Class LookupText
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtFullEmailAddress = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.lbSentMessages = New System.Windows.Forms.ListBox()
         Me.grpMessage.SuspendLayout()
         Me.grpTenant.SuspendLayout()
         Me.grpAsset.SuspendLayout()
@@ -59,7 +60,7 @@ Partial Class LookupText
         '
         'txtEmailAddress
         '
-        Me.txtEmailAddress.Location = New System.Drawing.Point(136, 24)
+        Me.txtEmailAddress.Location = New System.Drawing.Point(144, 24)
         Me.txtEmailAddress.Name = "txtEmailAddress"
         Me.txtEmailAddress.Size = New System.Drawing.Size(218, 20)
         Me.txtEmailAddress.TabIndex = 0
@@ -69,9 +70,9 @@ Partial Class LookupText
         Me.lblEmailAddress.AutoSize = True
         Me.lblEmailAddress.Location = New System.Drawing.Point(24, 28)
         Me.lblEmailAddress.Name = "lblEmailAddress"
-        Me.lblEmailAddress.Size = New System.Drawing.Size(108, 13)
+        Me.lblEmailAddress.Size = New System.Drawing.Size(117, 13)
         Me.lblEmailAddress.TabIndex = 1
-        Me.lblEmailAddress.Text = "Partial Email Address:"
+        Me.lblEmailAddress.Text = "Partial TextTo Address:"
         '
         'btnLookup
         '
@@ -88,7 +89,7 @@ Partial Class LookupText
         'lblTenantName
         '
         Me.lblTenantName.AutoSize = True
-        Me.lblTenantName.Location = New System.Drawing.Point(6, 27)
+        Me.lblTenantName.Location = New System.Drawing.Point(6, 19)
         Me.lblTenantName.Name = "lblTenantName"
         Me.lblTenantName.Size = New System.Drawing.Size(75, 13)
         Me.lblTenantName.TabIndex = 3
@@ -97,7 +98,7 @@ Partial Class LookupText
         'txtTenantName
         '
         Me.txtTenantName.BackColor = System.Drawing.SystemColors.Info
-        Me.txtTenantName.Location = New System.Drawing.Point(88, 23)
+        Me.txtTenantName.Location = New System.Drawing.Point(88, 15)
         Me.txtTenantName.Name = "txtTenantName"
         Me.txtTenantName.ReadOnly = True
         Me.txtTenantName.Size = New System.Drawing.Size(216, 20)
@@ -106,7 +107,7 @@ Partial Class LookupText
         'txtCellPhone
         '
         Me.txtCellPhone.BackColor = System.Drawing.SystemColors.Info
-        Me.txtCellPhone.Location = New System.Drawing.Point(88, 60)
+        Me.txtCellPhone.Location = New System.Drawing.Point(88, 41)
         Me.txtCellPhone.Name = "txtCellPhone"
         Me.txtCellPhone.ReadOnly = True
         Me.txtCellPhone.Size = New System.Drawing.Size(216, 20)
@@ -115,7 +116,7 @@ Partial Class LookupText
         'lblCellPhone
         '
         Me.lblCellPhone.AutoSize = True
-        Me.lblCellPhone.Location = New System.Drawing.Point(6, 64)
+        Me.lblCellPhone.Location = New System.Drawing.Point(6, 45)
         Me.lblCellPhone.Name = "lblCellPhone"
         Me.lblCellPhone.Size = New System.Drawing.Size(61, 13)
         Me.lblCellPhone.TabIndex = 5
@@ -124,7 +125,7 @@ Partial Class LookupText
         'txtPrimaryEmail
         '
         Me.txtPrimaryEmail.BackColor = System.Drawing.SystemColors.Info
-        Me.txtPrimaryEmail.Location = New System.Drawing.Point(88, 96)
+        Me.txtPrimaryEmail.Location = New System.Drawing.Point(88, 67)
         Me.txtPrimaryEmail.Name = "txtPrimaryEmail"
         Me.txtPrimaryEmail.ReadOnly = True
         Me.txtPrimaryEmail.Size = New System.Drawing.Size(216, 20)
@@ -133,7 +134,7 @@ Partial Class LookupText
         'lblPrimaryEmail
         '
         Me.lblPrimaryEmail.AutoSize = True
-        Me.lblPrimaryEmail.Location = New System.Drawing.Point(6, 96)
+        Me.lblPrimaryEmail.Location = New System.Drawing.Point(6, 67)
         Me.lblPrimaryEmail.Name = "lblPrimaryEmail"
         Me.lblPrimaryEmail.Size = New System.Drawing.Size(72, 13)
         Me.lblPrimaryEmail.TabIndex = 7
@@ -142,7 +143,7 @@ Partial Class LookupText
         'txtMessageSent
         '
         Me.txtMessageSent.BackColor = System.Drawing.SystemColors.Info
-        Me.txtMessageSent.Location = New System.Drawing.Point(101, 146)
+        Me.txtMessageSent.Location = New System.Drawing.Point(101, 220)
         Me.txtMessageSent.Name = "txtMessageSent"
         Me.txtMessageSent.ReadOnly = True
         Me.txtMessageSent.Size = New System.Drawing.Size(218, 20)
@@ -151,7 +152,7 @@ Partial Class LookupText
         'lblMessageSent
         '
         Me.lblMessageSent.AutoSize = True
-        Me.lblMessageSent.Location = New System.Drawing.Point(24, 150)
+        Me.lblMessageSent.Location = New System.Drawing.Point(24, 224)
         Me.lblMessageSent.Name = "lblMessageSent"
         Me.lblMessageSent.Size = New System.Drawing.Size(78, 13)
         Me.lblMessageSent.TabIndex = 9
@@ -160,7 +161,7 @@ Partial Class LookupText
         'txtSubjectLine
         '
         Me.txtSubjectLine.BackColor = System.Drawing.SystemColors.Info
-        Me.txtSubjectLine.Location = New System.Drawing.Point(101, 183)
+        Me.txtSubjectLine.Location = New System.Drawing.Point(101, 247)
         Me.txtSubjectLine.Name = "txtSubjectLine"
         Me.txtSubjectLine.ReadOnly = True
         Me.txtSubjectLine.Size = New System.Drawing.Size(218, 20)
@@ -169,7 +170,7 @@ Partial Class LookupText
         'lblSubjectLine
         '
         Me.lblSubjectLine.AutoSize = True
-        Me.lblSubjectLine.Location = New System.Drawing.Point(24, 187)
+        Me.lblSubjectLine.Location = New System.Drawing.Point(24, 251)
         Me.lblSubjectLine.Name = "lblSubjectLine"
         Me.lblSubjectLine.Size = New System.Drawing.Size(69, 13)
         Me.lblSubjectLine.TabIndex = 11
@@ -178,7 +179,7 @@ Partial Class LookupText
         'txtBodyText
         '
         Me.txtBodyText.BackColor = System.Drawing.SystemColors.Info
-        Me.txtBodyText.Location = New System.Drawing.Point(88, 100)
+        Me.txtBodyText.Location = New System.Drawing.Point(88, 71)
         Me.txtBodyText.Multiline = True
         Me.txtBodyText.Name = "txtBodyText"
         Me.txtBodyText.ReadOnly = True
@@ -189,7 +190,7 @@ Partial Class LookupText
         'lblBodyText
         '
         Me.lblBodyText.AutoSize = True
-        Me.lblBodyText.Location = New System.Drawing.Point(24, 243)
+        Me.lblBodyText.Location = New System.Drawing.Point(24, 297)
         Me.lblBodyText.Name = "lblBodyText"
         Me.lblBodyText.Size = New System.Drawing.Size(58, 13)
         Me.lblBodyText.TabIndex = 13
@@ -198,7 +199,7 @@ Partial Class LookupText
         'lblAddressDesc
         '
         Me.lblAddressDesc.AutoSize = True
-        Me.lblAddressDesc.Location = New System.Drawing.Point(4, 64)
+        Me.lblAddressDesc.Location = New System.Drawing.Point(4, 45)
         Me.lblAddressDesc.Name = "lblAddressDesc"
         Me.lblAddressDesc.Size = New System.Drawing.Size(48, 13)
         Me.lblAddressDesc.TabIndex = 15
@@ -207,7 +208,7 @@ Partial Class LookupText
         'lblProperty
         '
         Me.lblProperty.AutoSize = True
-        Me.lblProperty.Location = New System.Drawing.Point(4, 27)
+        Me.lblProperty.Location = New System.Drawing.Point(4, 19)
         Me.lblProperty.Name = "lblProperty"
         Me.lblProperty.Size = New System.Drawing.Size(49, 13)
         Me.lblProperty.TabIndex = 16
@@ -216,7 +217,7 @@ Partial Class LookupText
         'txtProperty
         '
         Me.txtProperty.BackColor = System.Drawing.SystemColors.Info
-        Me.txtProperty.Location = New System.Drawing.Point(79, 23)
+        Me.txtProperty.Location = New System.Drawing.Point(79, 15)
         Me.txtProperty.Name = "txtProperty"
         Me.txtProperty.ReadOnly = True
         Me.txtProperty.Size = New System.Drawing.Size(216, 20)
@@ -225,7 +226,7 @@ Partial Class LookupText
         'txtAddress
         '
         Me.txtAddress.BackColor = System.Drawing.SystemColors.Info
-        Me.txtAddress.Location = New System.Drawing.Point(79, 60)
+        Me.txtAddress.Location = New System.Drawing.Point(79, 41)
         Me.txtAddress.Name = "txtAddress"
         Me.txtAddress.ReadOnly = True
         Me.txtAddress.Size = New System.Drawing.Size(216, 20)
@@ -238,9 +239,9 @@ Partial Class LookupText
         Me.grpMessage.Controls.Add(Me.txtSentByName)
         Me.grpMessage.Controls.Add(Me.lblSentByName)
         Me.grpMessage.Controls.Add(Me.txtBodyText)
-        Me.grpMessage.Location = New System.Drawing.Point(12, 121)
+        Me.grpMessage.Location = New System.Drawing.Point(12, 204)
         Me.grpMessage.Name = "grpMessage"
-        Me.grpMessage.Size = New System.Drawing.Size(640, 187)
+        Me.grpMessage.Size = New System.Drawing.Size(640, 152)
         Me.grpMessage.TabIndex = 19
         Me.grpMessage.TabStop = False
         Me.grpMessage.Text = "Last Message Sent"
@@ -248,7 +249,7 @@ Partial Class LookupText
         'txtSentByEmail
         '
         Me.txtSentByEmail.BackColor = System.Drawing.SystemColors.Info
-        Me.txtSentByEmail.Location = New System.Drawing.Point(408, 62)
+        Me.txtSentByEmail.Location = New System.Drawing.Point(408, 43)
         Me.txtSentByEmail.Name = "txtSentByEmail"
         Me.txtSentByEmail.ReadOnly = True
         Me.txtSentByEmail.Size = New System.Drawing.Size(218, 20)
@@ -257,7 +258,7 @@ Partial Class LookupText
         'lblSentByEmail
         '
         Me.lblSentByEmail.AutoSize = True
-        Me.lblSentByEmail.Location = New System.Drawing.Point(314, 66)
+        Me.lblSentByEmail.Location = New System.Drawing.Point(314, 47)
         Me.lblSentByEmail.Name = "lblSentByEmail"
         Me.lblSentByEmail.Size = New System.Drawing.Size(75, 13)
         Me.lblSentByEmail.TabIndex = 17
@@ -266,7 +267,7 @@ Partial Class LookupText
         'txtSentByName
         '
         Me.txtSentByName.BackColor = System.Drawing.SystemColors.Info
-        Me.txtSentByName.Location = New System.Drawing.Point(408, 25)
+        Me.txtSentByName.Location = New System.Drawing.Point(408, 16)
         Me.txtSentByName.Name = "txtSentByName"
         Me.txtSentByName.ReadOnly = True
         Me.txtSentByName.Size = New System.Drawing.Size(218, 20)
@@ -275,7 +276,7 @@ Partial Class LookupText
         'lblSentByName
         '
         Me.lblSentByName.AutoSize = True
-        Me.lblSentByName.Location = New System.Drawing.Point(314, 29)
+        Me.lblSentByName.Location = New System.Drawing.Point(314, 20)
         Me.lblSentByName.Name = "lblSentByName"
         Me.lblSentByName.Size = New System.Drawing.Size(78, 13)
         Me.lblSentByName.TabIndex = 15
@@ -289,9 +290,9 @@ Partial Class LookupText
         Me.grpTenant.Controls.Add(Me.lblPrimaryEmail)
         Me.grpTenant.Controls.Add(Me.lblTenantName)
         Me.grpTenant.Controls.Add(Me.lblCellPhone)
-        Me.grpTenant.Location = New System.Drawing.Point(12, 308)
+        Me.grpTenant.Location = New System.Drawing.Point(12, 357)
         Me.grpTenant.Name = "grpTenant"
-        Me.grpTenant.Size = New System.Drawing.Size(325, 137)
+        Me.grpTenant.Size = New System.Drawing.Size(325, 100)
         Me.grpTenant.TabIndex = 20
         Me.grpTenant.TabStop = False
         Me.grpTenant.Text = "Tenant"
@@ -302,9 +303,9 @@ Partial Class LookupText
         Me.grpAsset.Controls.Add(Me.lblAddressDesc)
         Me.grpAsset.Controls.Add(Me.lblProperty)
         Me.grpAsset.Controls.Add(Me.txtAddress)
-        Me.grpAsset.Location = New System.Drawing.Point(343, 308)
+        Me.grpAsset.Location = New System.Drawing.Point(343, 357)
         Me.grpAsset.Name = "grpAsset"
-        Me.grpAsset.Size = New System.Drawing.Size(310, 137)
+        Me.grpAsset.Size = New System.Drawing.Size(310, 100)
         Me.grpAsset.TabIndex = 21
         Me.grpAsset.TabStop = False
         Me.grpAsset.Text = "Property"
@@ -321,16 +322,16 @@ Partial Class LookupText
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(24, 69)
+        Me.Label1.Location = New System.Drawing.Point(24, 179)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(95, 13)
+        Me.Label1.Size = New System.Drawing.Size(104, 13)
         Me.Label1.TabIndex = 24
-        Me.Label1.Text = "Full Email Address:"
+        Me.Label1.Text = "Full TextTo Address:"
         '
         'txtFullEmailAddress
         '
         Me.txtFullEmailAddress.BackColor = System.Drawing.SystemColors.Info
-        Me.txtFullEmailAddress.Location = New System.Drawing.Point(136, 65)
+        Me.txtFullEmailAddress.Location = New System.Drawing.Point(144, 175)
         Me.txtFullEmailAddress.Name = "txtFullEmailAddress"
         Me.txtFullEmailAddress.ReadOnly = True
         Me.txtFullEmailAddress.Size = New System.Drawing.Size(218, 20)
@@ -343,13 +344,23 @@ Partial Class LookupText
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(49, 13)
         Me.Label2.TabIndex = 25
-        Me.Label2.Text = "v180905"
+        Me.Label2.Text = "v180907"
+        '
+        'lbSentMessages
+        '
+        Me.lbSentMessages.FormattingEnabled = True
+        Me.lbSentMessages.Location = New System.Drawing.Point(27, 65)
+        Me.lbSentMessages.Name = "lbSentMessages"
+        Me.lbSentMessages.Size = New System.Drawing.Size(611, 95)
+        Me.lbSentMessages.TabIndex = 26
         '
         'LookupText
         '
+        Me.AcceptButton = Me.btnLookup
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(664, 459)
+        Me.ClientSize = New System.Drawing.Size(664, 466)
+        Me.Controls.Add(Me.lbSentMessages)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtFullEmailAddress)
@@ -418,4 +429,5 @@ Partial Class LookupText
     Friend WithEvents Label1 As Label
     Friend WithEvents txtFullEmailAddress As TextBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents lbSentMessages As ListBox
 End Class

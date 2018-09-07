@@ -89,7 +89,7 @@ Public Class LookupText
             For lMessageIdx = 0 To (gSentMessages.Count - 1)
 
                 lSentMessage = gSentMessages.Item(lMessageIdx)
-                lDisplayRow = LSet(lSentMessage.TextToEmail, 36) & " " & LSet(lSentMessage.SentTime.ToString, 22) & " " & LSet(lSentMessage.BodyText, 60)
+                lDisplayRow = LSet(lSentMessage.TextToEmail, 22) & " " & LSet(lSentMessage.SentTime.ToString, 22) & " " & LSet(lSentMessage.BodyText, 40)
                 lbSentMessages.Items.Add(lDisplayRow)
 
             Next

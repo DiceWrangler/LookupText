@@ -348,10 +348,12 @@ Partial Class LookupText
         '
         'lbSentMessages
         '
+        Me.lbSentMessages.Font = New System.Drawing.Font("Lucida Sans Typewriter", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbSentMessages.FormattingEnabled = True
+        Me.lbSentMessages.ItemHeight = 12
         Me.lbSentMessages.Location = New System.Drawing.Point(27, 65)
         Me.lbSentMessages.Name = "lbSentMessages"
-        Me.lbSentMessages.Size = New System.Drawing.Size(611, 95)
+        Me.lbSentMessages.Size = New System.Drawing.Size(611, 88)
         Me.lbSentMessages.TabIndex = 26
         '
         'LookupText

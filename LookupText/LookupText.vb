@@ -111,7 +111,7 @@ Public Class LookupText
 
         Dim lClipboardText As String
 
-        lClipboardText = "TextTo Address: " + txtEmailAddress.Text + Environment.NewLine + Environment.NewLine
+        lClipboardText = "TextTo Address: " + txtFullEmailAddress.Text + Environment.NewLine + Environment.NewLine
         lClipboardText += LSet("Message Sent: " + txtMessageSent.Text, 40) + "Sent By Name: " + txtSentByName.Text + Environment.NewLine
         lClipboardText += LSet("Subject Line: " + txtSubjectLine.Text, 40) + "Sent By Email: " + txtSentByEmail.Text + Environment.NewLine
         lClipboardText += Environment.NewLine + "Body Text: " + Environment.NewLine + txtBodyText.Text + Environment.NewLine + Environment.NewLine

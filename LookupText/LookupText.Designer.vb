@@ -344,13 +344,13 @@ Partial Class LookupText
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(49, 13)
         Me.Label2.TabIndex = 25
-        Me.Label2.Text = "v180907"
+        Me.Label2.Text = "v180914"
         '
         'lbSentMessages
         '
-        Me.lbSentMessages.Font = New System.Drawing.Font("Lucida Sans Typewriter", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbSentMessages.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbSentMessages.FormattingEnabled = True
-        Me.lbSentMessages.ItemHeight = 12
+        Me.lbSentMessages.ItemHeight = 14
         Me.lbSentMessages.Location = New System.Drawing.Point(27, 65)
         Me.lbSentMessages.Name = "lbSentMessages"
         Me.lbSentMessages.Size = New System.Drawing.Size(611, 88)

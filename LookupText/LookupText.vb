@@ -81,7 +81,7 @@ Public Class LookupText
         txtAddress.Text = ""
         txtProperty.Text = ""
 
-        lEmailAddress = txtEmailAddress.Text
+        lEmailAddress = txtEmailAddress.Text.Trim
         gSentMessages = GetSentMessagesByEmail(lEmailAddress)
 
         If gSentMessages.Count > 0 Then
